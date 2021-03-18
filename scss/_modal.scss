@@ -1,0 +1,86 @@
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color-text, 0.7);
+  transform-origin: center;
+  overflow-y: scroll;
+  transition: all 0.3s;
+
+  &.active {
+    z-index: 500;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &__content {
+    background-color: $color-background;
+    width: 90%;
+    padding: 2.5rem;
+    font-size: 2rem;
+    margin: auto;
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include respond(desk-small) {
+      width: 50%;
+    }
+  }
+
+  &__description {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__image,
+  &__text {
+    flex: 0 0 95%;
+    max-width: 95%;
+    margin: 1rem 0;
+    padding: 2rem;
+
+    @include respond(desk-small) {
+      flex: 0 0 45%;
+      max-width: 45%;
+    }
+  }
+
+  &__text {
+    border-top: 2px solid $color-primary;
+
+    @include respond(desk-small) {
+      border-left: 2px solid $color-primary;
+      border-top: none;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    color: $color-text;
+    appearance: none;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: rgba($color-text, 0.8);
+    }
+  }
+}

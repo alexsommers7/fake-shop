@@ -1,9 +1,9 @@
 'use strict';
 
 const sectionContainer = document.querySelector('.section--shop');
-const productsContainer = document.querySelector('.products');
 const shopNav = document.querySelector('.shop__nav');
 const shopCategories = document.querySelector('.shop__categories');
+const productsContainer = document.querySelector('.products');
 
 (async function initializeProducts() {
   try {
@@ -15,6 +15,7 @@ const shopCategories = document.querySelector('.shop__categories');
     createDisplayCategories(productData);
     createDisplayProducts(productData);
     createFilters();
+    initializeModal();
   } catch (err) {
     console.error(err.message);
     sectionContainer.insertAdjacentHTML(
@@ -37,7 +38,7 @@ function createDisplayProducts(products) {
           <p class="product__category">${product.category}</p>
           <a href="#" tabindex="-1"><h3 class="product__name" title="${product.title}">${truncatedTitle}</h3></a>
           <p class="product__price">$${formattedPrice}</p>
-          <a class="btn btn--primary product__btn" tabindex="-1" href="#" title="See Details - ${truncatedTitle}">See Details</a>
+          <button class="btn btn--primary product__btn" tabindex="-1" title="See Details - ${truncatedTitle}" data-image="${product.image}" data-description="${product.description}">See Details</button>
         </div>
       </article>
     `;
@@ -132,3 +133,29 @@ toTopBtn.addEventListener('click', function () {
   document.body.scrollTop = 0; // safari
   document.documentElement.scrollTop = 0; // chrome, firefox, and Opera
 });
+
+// modal for product details
+function initializeModal() {
+  const productBtns = document.querySelectorAll('.product__btn');
+  const modal = document.querySelector('.modal');
+  const modalClose = document.querySelector('.modal__close');
+  const modalDescription = document.querySelector('.modal__description');
+
+  [modal, modalClose].forEach(el => {
+    el.addEventListener('click', function () {
+      modal.classList.remove('active');
+    });
+  });
+
+  productBtns.forEach(btn =>
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      modalDescription.innerHTML = '';
+      const html = `
+      <img class="modal__image" src="${this.getAttribute('data-image')}">
+      <p class="modal__text">${this.getAttribute('data-description')}</p>`;
+      modalDescription.insertAdjacentHTML('beforeend', html);
+      modal.classList.add('active');
+    })
+  );
+}
