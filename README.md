@@ -27,6 +27,5 @@ https://sommers-fake-shop.netlify.app/
 
 ## Future Improvements (beyond the 4 hour max)
 - Transpile JavaScript with Babel for IE support
-- Modal popup to view product details without leaving the page
 - More sorting options - alphabetical
 - Product facet search
