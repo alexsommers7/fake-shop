@@ -27,5 +27,6 @@ https://sommers-fake-shop.netlify.app/
 
 ## Future Improvements (beyond the 4 hour max)
 - Transpile JavaScript with Babel for IE support
+- Add category accordion on mobile for edge case of many categories
 - More sorting options - alphabetical
 - Product facet search
