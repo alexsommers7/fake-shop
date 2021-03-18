@@ -1,0 +1,204 @@
+.shop {
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto 2rem;
+    width: 100%;
+    transition: opacity 0.8s;
+
+    @include respond(desk-small) {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      margin: 0 auto 8rem;
+    }
+  }
+
+  &__categories {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  &__category {
+    margin: 0 1rem;
+  }
+
+  &__sort {
+    padding: 1.5rem 0;
+    display: flex;
+    line-height: 1.4;
+
+    @include respond(desk-small) {
+      margin-right: 1rem;
+      display: block;
+    }
+  }
+}
+
+.sort {
+  &__select {
+    margin-left: 1rem;
+
+    @include respond(desk-small) {
+      margin-left: 0;
+    }
+  }
+}
+
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  transition: opacity 0.8s;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    grid-gap: 2.5rem;
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+
+    @include respond(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(desk-small) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 4rem;
+    }
+
+    @include respond(desk-large) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.product {
+  background-color: #fff;
+  box-shadow: $design-box-shadow-default;
+  border-radius: $design-border-radius-default;
+  font-size: 1.8rem;
+  text-align: center;
+  position: relative;
+
+  @include respond(tab-port) {
+    align-self: stretch;
+  }
+
+  @supports not (display: grid) {
+    flex: 0 0 100%;
+
+    @include respond(tab-port) {
+      flex: 0 0 50%;
+    }
+
+    @include respond(desk-small) {
+      flex: 0 0 33%;
+    }
+
+    @include respond(desk-large) {
+      flex: 0 0 25%;
+    }
+  }
+
+  & a {
+    text-decoration: none;
+  }
+
+  &__img {
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    height: 300px;
+    background-color: #eee;
+
+    @include respond(tab-land) {
+      height: 350px;
+    }
+  }
+
+  &__data {
+    padding: 1.5rem 2.75rem 7.5rem; // extra on bottom for abs positioned button
+  }
+
+  &__name,
+  &__price,
+  &__category {
+    text-align: left;
+  }
+
+  &__category {
+    font-weight: 300;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 30px;
+      border-bottom: 1px solid $color-primary;
+    }
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    margin: 2.5rem 0 0.5rem; // extra on top to account for separator
+    color: $color-primary;
+
+    &:hover {
+      color: rgba($color-primary, 0.85);
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 1rem;
+    margin: 1rem auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+  }
+}
+
+.toTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 100px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: rgba($color-primary, 0.85);
+  z-index: 90;
+  transition: all 0.3s;
+
+  &:active {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: rgba($color-primary, 1);
+  }
+
+  & > svg {
+    width: 3rem;
+    height: 3rem;
+    fill: #fff;
+  }
+}

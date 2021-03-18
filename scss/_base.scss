@@ -1,0 +1,69 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @include respond(desk-small) {
+    font-size: 66.75%;
+  }
+
+  @include respond(desk-xlarge) {
+    font-size: 80%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+::selection {
+  background: $color-highlight;
+  color: $color-highlight-text;
+}
+
+body {
+  font-family: $font-family-main;
+  font-weight: $font-weight-default;
+  line-height: 1.6;
+  color: $color-text;
+  background-color: $color-background;
+  overflow-x: hidden;
+  overflow-y: scroll; // prevent slight layout shift when introducing content below the fold
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  transition: all 1s;
+}
+
+section {
+  padding: $layout-section-padding-small;
+  max-width: $layout-max-width;
+  margin: auto;
+  font-size: 1.6rem;
+  position: relative;
+
+  @include respond(tab-land) {
+    padding: $layout-section-padding-medium;
+  }
+
+  @include respond(desk-small) {
+    padding: $layout-section-padding-large;
+  }
+}

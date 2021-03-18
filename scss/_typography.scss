@@ -1,0 +1,33 @@
+.btn {
+  font-family: $font-family-main;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 0.75rem 2.5rem;
+  text-align: center;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  border: none;
+  border-radius: $design-border-radius-default;
+  cursor: pointer;
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &--filter:not(.btn--primary) {
+    margin: 1rem auto;
+    background-color: $color-background-light-grey;
+    color: $color-text;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  &:hover {
+    background-color: rgba($color-primary, 0.85);
+  }
+}

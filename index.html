@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Shop our products" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500&family=Open+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Shop</title>
+  </head>
+  <body class="loading">
+    <main>
+      <div class="loading__content">
+        <div class="loading__spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <section class="section--shop">
+        <nav class="shop__nav" style="opacity: 0">
+          <ul class="shop__categories">
+            <li class="shop__category">
+              <button class="btn btn--primary btn--filter" data-filter="all">
+                Show All
+              </button>
+            </li>
+          </ul>
+          <div class="shop__sort">
+            <p>Sort by:</p>
+            <form name="sort__form" action="">
+              <select class="sort__select" name="sort__select">
+                <option value="" selected disabled hidden>Choose here</option>
+                <option value="0">Price, Low to High</option>
+                <option value="1">Price, High to Low</option>
+              </select>
+            </form>
+          </div>
+        </nav>
+        <div class="products"></div>
+      </section>
+      <button class="toTop" aria-label="Return to the top of the page">
+        <svg class="icon icon-chevron-thin-up">
+          <use xlink:href="#icon-chevron-thin-up"></use>
+          <symbol id="icon-chevron-thin-up" viewBox="0 0 20 20">
+            <path
+              d="M2.582 13.891c-0.272 0.268-0.709 0.268-0.979 0s-0.271-0.701 0-0.969l7.908-7.83c0.27-0.268 0.707-0.268 0.979 0l7.908 7.83c0.27 0.268 0.27 0.701 0 0.969s-0.709 0.268-0.978 0l-7.42-7.141-7.418 7.141z"
+            ></path>
+          </symbol>
+        </svg>
+      </button>
+    </main>
+    <script src="/scripts/products.js"></script>
+  </body>
+</html>
