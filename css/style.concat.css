@@ -352,7 +352,7 @@ body.loading {
   .modal__content {
     background-color: #fdfdfd;
     width: 90%;
-    padding: 2.5rem;
+    padding: 1.5rem;
     font-size: 2rem;
     margin: auto;
     min-height: 500px;
