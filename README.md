@@ -1,6 +1,9 @@
 # Fake Shop
 Shop landing page created using a fake shop API. Built with no frameworks, hosted on Netlify with continuous integration via GitHub.
 
+## Live demo
+https://sommers-fake-shop.netlify.app/
+
 ## Technologies used
 - HTML
 - CSS/SCSS
